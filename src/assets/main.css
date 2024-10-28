@@ -5,4 +5,14 @@
   margin: 0 auto;
   padding: 2rem;
   font-weight: normal;
+  font-family: 'GloriaHallelujah';
+}
+
+@font-face {
+  font-family: 'GloriaHallelujah';
+  font-weight: 400;
+  font-style: normal;
+  font-display: auto;
+  unicode-range: U+000-5FF;
+  src: url('/fonts/GloriaHallelujah-Regular.ttf') format('truetype');
 }
