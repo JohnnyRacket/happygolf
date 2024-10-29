@@ -1,6 +1,6 @@
 <script setup>
 import 'wired-elements'
-import BouncingIcon from '@/components/BouncingIcon.vue'
+// import BouncingIcon from '@/components/BouncingIcon.vue'
 
 const startRound = () => {
   console.log('Starting a new round')
@@ -11,18 +11,11 @@ const startRound = () => {
   <main>
     <h1>Happy Golf</h1>
     <section>
-      <wired-button elevation="2" @click="startRound">Start Round</wired-button>
+      <wired-button id="styled" elevation="2" @click="startRound"
+        >Start Round</wired-button
+      >
     </section>
-    <BouncingIcon />
-    <BouncingIcon />
-    <BouncingIcon />
-    <BouncingIcon />
-    <BouncingIcon />
-    <BouncingIcon />
-    <BouncingIcon />
-    <BouncingIcon />
-    <BouncingIcon />
-    <BouncingIcon />
+    <!-- <BouncingIcon /> -->
   </main>
 </template>
 
@@ -34,12 +27,18 @@ main {
   height: 100vh;
   font-size: 2rem;
   flex-direction: column;
+  /* background-image: url('/images/tile_background.png'); */
 }
 section {
+  z-index: 3;
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+#styled {
+  stroke-width: 3;
+  font-weight: bold;
 }
 </style>
