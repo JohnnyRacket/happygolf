@@ -3,7 +3,6 @@
 #app {
   max-width: 900px;
   margin: 0 auto;
-  padding: 2rem;
   font-weight: bolder;
   font-family: 'GloriaHallelujah';
 }
@@ -14,4 +13,9 @@
   font-display: auto;
   unicode-range: U+000-5FF;
   src: url('/fonts/GloriaHallelujah-Regular.ttf') format('truetype');
+}
+
+button {
+  stroke-width: 3 !important;
+  background: red;
 }
