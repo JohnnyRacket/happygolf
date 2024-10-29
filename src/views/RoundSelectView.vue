@@ -18,6 +18,8 @@
   align-items: center;
   height: 100vh;
   font-size: 2rem;
+  padding: 2rem;
+  text-align: center;
   flex-direction: column;
   /* background-image: url('/images/tile_background.png'); */
 }

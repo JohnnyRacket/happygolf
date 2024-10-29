@@ -20,10 +20,12 @@ const router = createRouter({
     {
       path: '/round-select',
       name: 'round-select',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import('../views/RoundSelectView.vue'),
+    },
+    {
+      path: '/score/:holeNumber',
+      name: 'score',
+      component: () => import('../views/HoleScoreView.vue'),
     },
   ],
 })
