@@ -1,5 +1,6 @@
 <script setup>
 import 'wired-elements'
+import { RouterLink } from 'vue-router'
 // import BouncingIcon from '@/components/BouncingIcon.vue'
 
 const startRound = () => {
@@ -11,9 +12,11 @@ const startRound = () => {
   <main>
     <h1>Happy Golf</h1>
     <section>
-      <wired-button id="styled" elevation="2" @click="startRound"
-        >Start Round</wired-button
-      >
+      <router-link to="/round-select">
+        <wired-button id="styled" elevation="2" @click="startRound"
+          >Start Round</wired-button
+        >
+      </router-link>
     </section>
     <!-- <BouncingIcon /> -->
   </main>

@@ -14,8 +14,3 @@
   unicode-range: U+000-5FF;
   src: url('/fonts/GloriaHallelujah-Regular.ttf') format('truetype');
 }
-
-button {
-  stroke-width: 3 !important;
-  background: red;
-}
