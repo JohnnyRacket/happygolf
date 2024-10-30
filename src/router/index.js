@@ -23,8 +23,8 @@ const router = createRouter({
       component: () => import('../views/RoundSelectView.vue'),
     },
     {
-      path: '/score/:holeNumber',
-      name: 'score',
+      path: '/hole/:holeNumber',
+      name: 'hole',
       component: () => import('../views/HoleScoreView.vue'),
     },
   ],

@@ -8,28 +8,32 @@ export const SCORE = {
 }
 
 export const useScorecardStore = defineStore('scorecard', () => {
-  const scorecard = ref([0])
+  const scorecard = ref([])
   const averageScore = computed(() =>
     Math.round(
-      scorecard.value.reduce((a, b) => a + b, 0) / (scorecard.value.length - 1),
+      scorecard.value.reduce((a, b) => a + b, 0) / scorecard.value.length,
     ),
   )
 
+  const numberOfHoles = computed(() => scorecard?.value?.length ?? 0)
+
   function setScoreForHole(holeNumber, value) {
-    scorecard.value[holeNumber] = value
+    scorecard.value[holeNumber - 1] = value
   }
 
   function getScoreForHole(holeNumber) {
-    return scorecard.value?.[holeNumber]
+    return scorecard.value?.[holeNumber - 1]
   }
-  function scorecard1Indexed() {
-    return [...scorecard.value].splice(1)
+
+  function initScorecard(numberOfHoles) {
+    scorecard.value = Array.from({ length: numberOfHoles + 1 }, () => 0)
   }
 
   return {
     scorecard,
-    scorecard1Indexed,
+    numberOfHoles,
     averageScore,
+    initScorecard,
     setScoreForHole,
     getScoreForHole,
   }
