@@ -1,7 +1,7 @@
 <script setup>
+import ScribbleButton from '@/components/ScribbleButton.vue'
 import SmileIconButton from '@/components/SmileIconButton.vue'
-import { useScorecardStore } from '@/stores/scorecard'
-import Button from 'primevue/button'
+import { SCORE, useScorecardStore } from '@/stores/scorecard'
 import { ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 // import { storeToRefs } from 'pinia'
@@ -14,7 +14,7 @@ const buttonSelected = ref(false)
 const nextHole = () => {
   buttonSelected.value = false
   const nextHoleNumber = parseInt(route.params.holeNumber) + 1
-  console.log('nextHoleNumber', nextHoleNumber, store.numberOfHoles)
+
   if (nextHoleNumber <= store.numberOfHoles) {
     router.push(`/hole/${nextHoleNumber}`)
   } else {
@@ -28,17 +28,6 @@ const scoreHole = score => {
 }
 
 const isSelected = score => {
-  console.log(
-    'isselected',
-    buttonSelected.value,
-    store.getScoreForHole(route.params.holeNumber),
-    score,
-  )
-  console.log(
-    'isSelected',
-    buttonSelected.value &&
-      store.getScoreForHole(route.params.holeNumber) == score,
-  )
   return (
     buttonSelected.value &&
     store.getScoreForHole(route.params.holeNumber) == score
@@ -50,17 +39,29 @@ const isSelected = score => {
   <div class="hole-score">
     <h2>Hole {{ $route.params.holeNumber }}</h2>
     <section>
-      <SmileIconButton @click="scoreHole(1)" :selected="isSelected(1)" />
-      <SmileIconButton @click="scoreHole(0)" :selected="isSelected(0)" />
-      <SmileIconButton @click="scoreHole(-1)" :selected="isSelected(-1)" />
-      <Button label="info" @click="nextHole" :disabled="!buttonSelected" rounded
-        >Next Hole</Button
+      <SmileIconButton
+        @click="scoreHole(1)"
+        :selected="isSelected(1)"
+        :variant="SCORE.HAPPY"
+      />
+      <SmileIconButton
+        @click="scoreHole(0)"
+        :selected="isSelected(0)"
+        :variant="SCORE.OK"
+      />
+      <SmileIconButton
+        @click="scoreHole(-1)"
+        :selected="isSelected(-1)"
+        :variant="SCORE.SAD"
+      />
+      <ScribbleButton @click="nextHole" :disabled="!buttonSelected"
+        >Next Hole</ScribbleButton
       >
     </section>
   </div>
 </template>
 
-<style>
+<style scoped>
 .hole-score {
   display: flex;
   height: 100vh;
@@ -76,5 +77,11 @@ section {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  flex: 1;
+  overflow: hidden;
+}
+.next-button {
+  padding: 1.5rem;
+  margin: 1rem 0;
 }
 </style>

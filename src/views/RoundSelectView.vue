@@ -1,6 +1,7 @@
 <script setup>
 import { useRouter } from 'vue-router'
 import { useScorecardStore } from '@/stores/scorecard'
+import ScribbleButton from '@/components/ScribbleButton.vue'
 const router = useRouter()
 const startRound = numberOfHoles => {
   //set number of holes in the pinia store named scorecard
@@ -13,9 +14,19 @@ const startRound = numberOfHoles => {
   <div class="round-select">
     <h2>Select Round Length</h2>
     <section>
-      <wired-button elevation="2" @click="startRound(9)">9 Holes</wired-button>
-      <wired-button elevation="2" @click="startRound(18)"
-        >18 Holes</wired-button
+      <ScribbleButton
+        class="round-button"
+        rounded
+        size="large"
+        @click="startRound(9)"
+        >9 Holes</ScribbleButton
+      >
+      <ScribbleButton
+        class="round-button"
+        rounded
+        size="large"
+        @click="startRound(18)"
+        >18 Holes</ScribbleButton
       >
     </section>
   </div>
@@ -35,11 +46,14 @@ const startRound = numberOfHoles => {
 }
 section {
   z-index: 3;
-  margin-top: 2rem;
+  margin-top: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 2rem;
+}
+.round-button {
+  width: 200px;
 }
 </style>

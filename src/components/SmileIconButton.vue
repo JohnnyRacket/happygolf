@@ -1,5 +1,6 @@
 <script setup>
-import { computed, defineProps } from 'vue'
+import { computed } from 'vue'
+import { SCORE } from '@/stores/scorecard'
 
 // Define the props
 const props = defineProps({
@@ -12,24 +13,42 @@ const props = defineProps({
     type: Function,
     required: true,
   },
+  variant: {
+    type: String,
+    required: false,
+    default: SCORE.HAPPY,
+  },
 })
 
-const background = computed(() => (props.selected ? 'lightgreen' : 'none'))
+const background = computed(() =>
+  props.selected ? 'url(/src/assets/outline.png)' : 'none',
+)
+
+const image = computed(() => {
+  switch (props.variant) {
+    case SCORE.HAPPY:
+      return '/src/assets/smilegolf.png'
+    case SCORE.OK:
+      return '/src/assets/neutralgolf.png'
+    case SCORE.SAD:
+      return '/src/assets/frowngolf.png'
+    default:
+      return '/src/assets/smilegolf.png'
+  }
+})
 </script>
 
 <template>
-  <div>
-    <button @click="props.onClick" class="smile-icon-button">
-      <img src="@/assets/smilegolf.png" alt="smile" />
-    </button>
-  </div>
+  <button @click="props.onClick" class="smile-icon-button">
+    <img :src="image" alt="smile" />
+  </button>
 </template>
 
 <style scoped>
 .smile-icon-button {
-  width: 150px;
-  height: 150px;
-  background: v-bind('background');
+  height: 100%;
+  min-height: 0;
+  background: none;
   color: inherit;
   border: none;
   padding: 0;
@@ -37,6 +56,9 @@ const background = computed(() => (props.selected ? 'lightgreen' : 'none'))
   cursor: pointer;
   outline: inherit;
   border-radius: 50%;
+  background-image: v-bind('background');
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 img {
   width: 100%;
