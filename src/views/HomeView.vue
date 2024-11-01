@@ -1,5 +1,4 @@
 <script setup>
-import 'wired-elements'
 import ScribbleButton from '@/components/ScribbleButton.vue'
 import { useRouter } from 'vue-router'
 const router = useRouter()
@@ -10,7 +9,6 @@ const startRound = () => {
 </script>
 
 <template>
-  <!-- <img src="/src/assets/smilegolf.png" alt="background image" /> -->
   <main>
     <h1>Happy Golf</h1>
     <section>
@@ -29,7 +27,13 @@ main {
   height: 100vh;
   font-size: 2rem;
   flex-direction: column;
-  /* background-image: url('/images/tile_background.png'); */
+}
+@media screen and (max-width: 900px) {
+  main {
+    background-image: url('src/assets/golfbg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }
 section {
   z-index: 3;

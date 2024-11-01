@@ -18,7 +18,6 @@ export const useScorecardStore = defineStore('scorecard', () => {
   const numberOfHoles = computed(() => scorecard?.value?.length ?? 0)
 
   function setScoreForHole(holeNumber, value) {
-    console.log('holeNumber', holeNumber)
     scorecard.value[holeNumber - 1] = value
   }
 

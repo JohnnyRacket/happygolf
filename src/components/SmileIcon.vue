@@ -5,7 +5,7 @@ import { SCORE } from '@/stores/scorecard'
 // Define the props
 const props = defineProps({
   variant: {
-    type: String,
+    type: Number,
     required: false,
     default: SCORE.HAPPY,
   },

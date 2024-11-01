@@ -14,7 +14,7 @@ const props = defineProps({
     required: true,
   },
   variant: {
-    type: String,
+    type: Number,
     required: false,
     default: SCORE.HAPPY,
   },
