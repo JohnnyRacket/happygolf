@@ -30,6 +30,18 @@ export const useScorecardStore = defineStore('scorecard', () => {
     scorecard.value = Array.from({ length: numberOfHoles }, () => 0)
   }
 
+  function getTotalHappyScore() {
+    return scorecard.value.filter(score => score === SCORE.HAPPY).length
+  }
+
+  function getTotalOkScore() {
+    return scorecard.value.filter(score => score === SCORE.OK).length
+  }
+
+  function getTotalSadScore() {
+    return scorecard.value.filter(score => score === SCORE.SAD).length
+  }
+
   return {
     scorecard,
     numberOfHoles,
@@ -37,5 +49,8 @@ export const useScorecardStore = defineStore('scorecard', () => {
     initScorecard,
     setScoreForHole,
     getScoreForHole,
+    getTotalHappyScore,
+    getTotalOkScore,
+    getTotalSadScore,
   }
 })

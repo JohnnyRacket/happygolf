@@ -27,6 +27,11 @@ const router = createRouter({
       name: 'hole',
       component: () => import('../views/HoleScoreView.vue'),
     },
+    {
+      path: '/scorecard',
+      name: 'scorecard',
+      component: () => import('../views/FinalScoreView.vue'),
+    },
   ],
 })
 
