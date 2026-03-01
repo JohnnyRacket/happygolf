@@ -30,7 +30,7 @@ main {
 }
 @media screen and (max-width: 900px) {
   main {
-    background-image: url('src/assets/golfbg.png');
+    background-image: url('../assets/golfbg.png');
     background-repeat: no-repeat;
     background-size: cover;
   }

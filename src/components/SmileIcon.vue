@@ -1,6 +1,9 @@
 <script setup>
 import { computed } from 'vue'
 import { SCORE } from '@/stores/scorecard'
+import smileGolf from '../assets/smilegolf.png'
+import neutralGolf from '../assets/neutralgolf.png'
+import frownGolf from '../assets/frowngolf.png'
 
 // Define the props
 const props = defineProps({
@@ -14,13 +17,13 @@ const props = defineProps({
 const image = computed(() => {
   switch (props.variant) {
     case SCORE.HAPPY:
-      return '/src/assets/smilegolf.png'
+      return smileGolf
     case SCORE.OK:
-      return '/src/assets/neutralgolf.png'
+      return neutralGolf
     case SCORE.SAD:
-      return '/src/assets/frowngolf.png'
+      return frownGolf
     default:
-      return '/src/assets/smilegolf.png'
+      return smileGolf
   }
 })
 </script>
